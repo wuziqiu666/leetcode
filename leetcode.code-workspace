@@ -4,5 +4,9 @@
 			"name": "leetcode",
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"commentTranslate.multiLineMerge": true,
+		"commentTranslate.source": "Kaiqun.tencent-cloud-translate-tencentCloud"
+	}
 }

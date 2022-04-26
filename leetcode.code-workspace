@@ -7,6 +7,7 @@
 	],
 	"settings": {
 		"commentTranslate.multiLineMerge": true,
-		"commentTranslate.source": "Kaiqun.tencent-cloud-translate-tencentCloud"
+		"commentTranslate.source": "Kaiqun.tencent-cloud-translate-tencentCloud",
+		"commentTranslate.hover.enabled": true
 	}
 }

@@ -49,6 +49,29 @@
 // @lc code=start
 class Solution {
     public int divide(int dividend, int divisor) {
+        if (dividend == 0) {
+            return 0;
+        }
+        if (dividend == Integer.MIN_VALUE) {
+            if (divisor == -1) {
+                return Integer.MAX_VALUE;
+            }
+        }
+        boolean neg = false;
+        if ((dividend ^ divisor) < 0) {
+            neg = true;
+        }
+        long t = Math.abs((long)dividend);
+        long s = Math.abs((long)divisor);
+        int result = 0;
+        for (int i = 31; i >= 0; i--) {
+            if ((t >> i) >= s) {
+                result += 1 << i;
+                t -= s << i;
+            }
+        }
+        return neg ? -result : result;
+        
 
     }
 }

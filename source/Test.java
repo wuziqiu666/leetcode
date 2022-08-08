@@ -1,9 +1,11 @@
+
 import leetcodeUtil.ListNode;
 
 public class Test {
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[][] matrix = {{1},{0}};
-        solution.setZeroes(matrix);
+        int[] nums = {1, 2, 3, 4, 5};
+        ListNode n1 = new ListNode(nums);
+        System.out.println(n1);
+        
     }
 }

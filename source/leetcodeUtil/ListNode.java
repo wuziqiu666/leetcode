@@ -3,8 +3,7 @@ package leetcodeUtil;
 public class ListNode {
     public int val;
     public ListNode next;
-    private ListNode tmp;
-
+    
     public ListNode(int x) {
         val = x;
         next = null;
@@ -18,15 +17,24 @@ public class ListNode {
         this.next = next;
     }
 
+    public ListNode(int[] nums) {
+        this.val = nums[0];
+        ListNode node = this;
+        for(int i = 1; i < nums.length; i++){
+            node.next = new ListNode(nums[i]);
+            node = node.next;
+        }
+    }
+
     @Override
     public String toString() {
+        ListNode node = this;
         StringBuilder sBuilder = new StringBuilder();
         sBuilder.append('[');
-        tmp = this;
-        while (tmp != null) {
-            sBuilder.append(tmp.val);
+        while (node != null) {
+            sBuilder.append(node.val);
             sBuilder.append(',');
-            tmp = tmp.next;
+            node = node.next;
         }
         sBuilder.replace(sBuilder.length() - 1, sBuilder.length(), "]");
         return sBuilder.toString();

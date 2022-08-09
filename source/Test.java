@@ -1,11 +1,15 @@
 
+import java.util.List;
+import java.util.stream.IntStream;
+
 import leetcodeUtil.ListNode;
+import leetcodeUtil.TreeNode;
 
 public class Test {
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5};
-        ListNode n1 = new ListNode(nums);
-        System.out.println(n1);
-        
+        Solution solution = new Solution();
+        List<TreeNode> a = solution.generateTrees(4);
+        System.out.println(a);
+
     }
 }

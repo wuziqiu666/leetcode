@@ -10,10 +10,7 @@ import leetcodeUtil.TreeNode;
 public class Test {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        List<String> wordDict = new ArrayList<>();
-        wordDict.add("apple");
-        wordDict.add("pen");
-        solution.wordBreak("applepenapple", wordDict);
-
+        int tmp = solution.findMin(nums);
+        System.out.println(tmp);
     }
 }

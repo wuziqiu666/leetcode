@@ -1,8 +1,10 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 import leetcodeUtil.TreeNode;
 
@@ -63,45 +65,40 @@ import leetcodeUtil.TreeNode;
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
+ * int val;
+ * TreeNode left;
+ * TreeNode right;
+ * TreeNode() {}
+ * TreeNode(int val) { this.val = val; }
+ * TreeNode(int val, TreeNode left, TreeNode right) {
+ * this.val = val;
+ * this.left = left;
+ * this.right = right;
+ * }
  * }
  */
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        int level = getLevel(root);
+        Queue<TreeNode> queue = new LinkedList<>();
         List<Integer> ans = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-        int t = 0;
-        int c = 0;
-        while (ans.size() < level)  {
-            TreeNode node = stack.pop();
-            if (node == null) {
-                c++;
-                if (c == 2) {
-                    t--;
-                    c = 0;
+        queue.offer(root);
+        while (queue.size() != 0) {
+            int size = queue.size();
+            TreeNode tmpNode = null;
+            while (size != 0) {
+                TreeNode node = queue.poll();
+                if (node != null) {
+                    queue.offer(node.left);
+                    queue.offer(node.right);
+                    tmpNode = node;
                 }
-                continue;
+                size--;
+                if (size == 0 && tmpNode != null) {
+                    ans.add(tmpNode.val);
+                }
             }
-            if (t == ans.size()) {
-                ans.add(node.val);
-                t++;
-            }
-            stack.push(node.left);
-            stack.push(node.right);
         }
         return ans;
-
     }
 
     public int getLevel(TreeNode root) {
@@ -112,4 +109,3 @@ class Solution {
     }
 }
 // @lc code=end
-

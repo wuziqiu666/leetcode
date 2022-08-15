@@ -9,8 +9,5 @@ import leetcodeUtil.TreeNode;
 
 public class Test {
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        int tmp = solution.findMin(nums);
-        System.out.println(tmp);
     }
 }

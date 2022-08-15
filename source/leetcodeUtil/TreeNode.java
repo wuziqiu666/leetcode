@@ -20,6 +20,10 @@ public class TreeNode {
         this.right = right;
     }
 
+    /**
+     * 层序遍历，需要把每层的null写出来才能识别
+     * @param s 层序遍历val数组
+     */
     public TreeNode(String s) {
         s = s.substring(1, s.length() - 1);
         String[] valStrings = s.split(",");

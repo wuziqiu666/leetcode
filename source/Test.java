@@ -5,11 +5,11 @@ public class Test {
         long startTime = System.currentTimeMillis();
 
         Solution solution = new Solution();
-        int[] nums = {2,2,1,3};
-        List<Integer> ans = solution.majorityElement(nums);
+        int[] coins = { 186, 419, 83, 408 };
+        int ans = solution.coinChange(coins, 6249);
 
         long endTime = System.currentTimeMillis();
-        System.out.println("runtime:" + (endTime- startTime) + "ms");
+        System.out.println("runtime:" + (endTime - startTime) + "ms");
 
         System.out.println(ans);
 

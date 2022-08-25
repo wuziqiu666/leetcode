@@ -5,8 +5,7 @@ public class Test {
         long startTime = System.currentTimeMillis();
 
         Solution solution = new Solution();
-        int[] coins = { 186, 419, 83, 408 };
-        int ans = solution.coinChange(coins, 6249);
+        int ans = solution.integerBreak(8);
 
         long endTime = System.currentTimeMillis();
         System.out.println("runtime:" + (endTime - startTime) + "ms");

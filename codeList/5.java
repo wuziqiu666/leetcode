@@ -1,9 +1,3 @@
-public class Main {
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        s.longestPalindrome("a");
-    }
-}
 
 class Solution {
     public String longestPalindrome(String s) {
@@ -18,7 +12,7 @@ class Solution {
 
         for (int i = 0; i < str.length(); i++) {
             p[i] = i < mx ? Math.min(p[2 * id - i], mx - i) : 1;
-            while (i - p[i] >= 0 && i + p[i] < str.length() && str.charAt(i - p[i]) == str.charAt(i + p[i])) {
+            while (i - p[i] > 0 && i + p[i] < str.length() && str.charAt(i - p[i]) == str.charAt(i + p[i])) {
                 p[i]++;
             }
             if(i + p[i] > mx){

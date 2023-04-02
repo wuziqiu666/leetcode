@@ -6,34 +6,38 @@ public class Main {
 }
 
 class Solution {
-    public String longestPalindrome(String s) {
-        String str = "#";
-        for (int i = 0; i < s.length(); i++) {
-            str += s.charAt(i);
-            str += "#";
-        }
-
-        int[] p = new int[str.length()];
-        int mx = 0, id = 0;
-
-        for (int i = 0; i < str.length(); i++) {
-            p[i] = i < mx ? Math.min(p[2 * id - i], mx - i) : 1;
-            while (i - p[i] >= 0 && i + p[i] < str.length() && str.charAt(i - p[i]) == str.charAt(i + p[i])) {
-                p[i]++;
+    int[] next;
+    public int strStr(String haystack, String needle) {
+        int j = 0;
+        preprocess(needle);
+        for(int i = 0; i < haystack.length(); i++){
+            while(j > 0 && haystack.charAt(i) != needle.charAt(j)){
+                j = next[j - 1];
             }
-            if(i + p[i] > mx){
-                mx = i + p[i];
-                id = i;
+            if(needle.charAt(j) == hatstack.charAt(i)){
+                j++;
+            }
+            if(j == needle.length()){
+                return i - j + 1;
             }
         }
-        
-        int maxlen = 0, site = 0;
-        for(int i = 0; i < p.length; i++){
-            if(p[i] > maxlen){
-                maxlen = p[i];
-                site = i;
-            }
-        }
-        return str.substring(site - maxlen + 1, site + maxlen).replace("#", "");
+        return -1;
     }
+
+    void preprocess(String needle){
+        next = new int[needle.length()];
+        next[0] = 0;
+        int j = 0;
+        for(int i = 1; i < needle.length(); i++){
+            while(j >0 && needle.charAt(i) != needle.charAt(j)){
+                j = next[j - 1];
+            }
+            if(needle.charAt(i) == needle.charAt(j)){
+                j++;
+            }
+            next[i] = j;
+        }
+    }
+
+
 }
